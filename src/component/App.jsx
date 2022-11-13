@@ -1,13 +1,31 @@
 // import logo from '../logo.svg';
-import { GlobalStyle } from './Clobal-stule';
-import { PageTitle } from './TextTutle';
+import GlobalStyle from './GlobalStyle';
+// import { PageTitle } from './PageTitle';
 import '../App.css';
+import { AppBar } from './Bar/AppBar';
+// import styled from 'styled-components';
+
+// const Text = styled.p`
+//   :hover {
+//     background-color: ${props => (props.isOnlain ? 'pink' : 'green')};
+//     color: ${props => (props.isOnlain ? 'black' : 'white')};
+//   }
+// `;
 
 function App() {
   return (
     <div>
-      {/* <GlobalStyle /> */}
-      <h1>React Home Norm</h1>
+      <GlobalStyle />
+      <AppBar
+        user={{
+          username: 'Дядя Ваня',
+          isOnline: true,
+        }}
+      />
+
+      {/* <PageTitle className="red">React Home Norm</PageTitle>
+      <Text isOnlain>Hello I am programmist 1</Text>
+      <Text>Hello I am programmist 2</Text> */}
     </div>
     // <div className="App">
     //   <header className="App-header">

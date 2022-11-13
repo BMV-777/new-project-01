@@ -1,5 +1,8 @@
-@import-normalize;
+import { createGlobalStyle } from 'styled-components';
+import 'normalize.css';
+// import styled from 'styled-components';
 
+const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,7 +20,18 @@ code {
 h1,
 h2,
 h4,
-h5 {
-  font-size: 50px;
-  margin-left: 300px;
+h5,
+p {
+
+   margin: 0;
 }
+
+.red {
+    color: red;
+  }
+  .green {
+    color: white;
+  }
+
+`;
+export default GlobalStyle;

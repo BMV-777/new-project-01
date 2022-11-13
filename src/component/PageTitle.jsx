@@ -1,7 +1,9 @@
-// import styled from 'styled-component';
+// import styled from 'styled-components';
 
 // const Title = styled.h1`
-//   margin-bottom: 40px;
+//   :hover {
+//     color: green;
+//   }
 // `;
 
 // export const PageTitle = ({ children }) => {

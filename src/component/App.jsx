@@ -20,6 +20,10 @@ function App() {
         user={{
           username: 'Дядя Ваня',
           isOnline: true,
+          points: {
+            total: 700,
+            required: 200,
+          },
         }}
       />
 

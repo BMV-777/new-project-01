@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Component } from 'react';
 import { FaUsers } from 'react-icons/fa';
 import {
   MenuContainer,
@@ -9,25 +9,35 @@ import {
   Points,
 } from './UserMenu.styled.js';
 
-export const UserMenu = ({ user }) => {
-  const [isPopoverVisible, setIsPopoverVisible] = useState(false);
-  return (
-    <MenuContainer
-      onMouseEnter={() => setIsPopoverVisible(true)}
-      onMouseLeave={() => setIsPopoverVisible(false)}
-    >
-      <Avatar isOnline={user.isOnline}>
-        <FaUsers size={40} />
-      </Avatar>
-      <UserName>{user.username}</UserName>
-      {isPopoverVisible && (
-        <PointsPopover>
-          <PointsLabel>Текущее кол-во очков:</PointsLabel>
-          <Points variant="total"> {user.points.total}</Points>
-          <PointsLabel>Нужное кол-во очков:</PointsLabel>
-          <Points variant="required"> {user.points.required}</Points>
-        </PointsPopover>
-      )}
-    </MenuContainer>
-  );
-};
+export class UserMenu extends Component {
+  state = {
+    isPopoverVisible: false,
+  };
+
+  openPopover = () => this.setState({ isPopoverVisible: true });
+  closedPopover = () => this.setState({ isPopoverVisible: false });
+  render() {
+    const { user } = this.props;
+    const { isPopoverVisible } = this.props;
+    return (
+      <MenuContainer
+        onMouseEnter={this.openPopover}
+        onMouseLeave={this.closedPopover}
+      >
+        <Avatar isOnline={user.isOnline}>
+          <FaUsers size={40} />
+        </Avatar>
+        <UserName>{user.username}</UserName>
+        {isPopoverVisible && (
+          <PointsPopover>
+            <PointsLabel>Текущее кол-во очков:</PointsLabel>
+            <Points variant="total"> {user.points.total}</Points>
+            <PointsLabel>Нужное кол-во очков:</PointsLabel>
+            <Points variant="required"> {user.points.required}</Points>
+          </PointsPopover>
+        )}
+      </MenuContainer>
+    );
+  }
+  // const [isPopoverVisible, setIsPopoverVisible] = useState(false);
+}
